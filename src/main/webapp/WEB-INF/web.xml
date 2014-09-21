@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>WEB-INF/spring-servlet.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+  <!-- Servlets -->
+  <!--<servlet>-->
+    <!--<servlet-name>greetServlet</servlet-name>-->
+    <!--<servlet-class>com.mresearch.server.GreetingServiceImpl</servlet-class>-->
+  <!--</servlet>-->
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.spring4gwt.server.SpringGwtRemoteServiceServlet</servlet-class>
+    </servlet>
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>greetServlet</servlet-name>-->
+    <!--<url-pattern>/databank/greet</url-pattern>-->
+  <!--</servlet-mapping>-->
+
+  <!--<servlet-mapping>-->
+      <!--<servlet-name>springGwtRemoteServiceServlet</servlet-name>-->
+      <!--<url-pattern>/databank/springGwtServices/*</url-pattern>                2-->
+  <!--</servlet-mapping>-->
+
+
+    <!-- Front Controller for all GWT Spring based servlets -->
+    <!--<servlet>-->
+        <!--<servlet-name>spring</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!-- Front Controller for all Spring based servlets -->
+    <!--<servlet>-->
+        <!--<servlet-name>spring</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!-- Don't forget to declare a gwt-servlet.xml -->
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>databank/rpc/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Don't forget to declare a spring-servlet.xml -->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>spring</servlet-name>-->
+        <!--<url-pattern>databank/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>databank.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>
