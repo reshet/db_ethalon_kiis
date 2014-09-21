@@ -39,7 +39,7 @@ public class databank implements EntryPoint {
   private final DatabankServicesAsync databankService = GWT.create(DatabankServices.class);
 
 
-  private final Messages messages = GWT.create(Messages.class);
+//  private final Messages messages = GWT.create(Messages.class);
 
   /**
    * This is the entry point method.
@@ -56,9 +56,9 @@ public class databank implements EntryPoint {
   }
 
   public void onModuleLoad() {
-    final Button sendButton = new Button( messages.sendButton() );
+    final Button sendButton = new Button( "Send" );
     final TextBox nameField = new TextBox();
-    nameField.setText( messages.nameField() );
+    nameField.setText("Name");
     final Label errorLabel = new Label();
 
     // We can add style names to widgets
@@ -67,8 +67,8 @@ public class databank implements EntryPoint {
     // Add the nameField and sendButton to the RootPanel
     // Use RootPanel.get() to get the entire body element
     RootPanel.get("nameFieldContainer").add(nameField);
-    RootPanel.get("heading").add(new HTML(messages.projectHeading()));
-    RootPanel.get("currentLocaleMsg").add(new HTML(messages.localeMsg()));
+    RootPanel.get("heading").add(new HTML("Project heading"));
+    RootPanel.get("currentLocaleMsg").add(new HTML("Locale msg"));
 
     RootPanel.get("sendButtonContainer").add(sendButton);
     RootPanel.get("errorLabelContainer").add(errorLabel);
